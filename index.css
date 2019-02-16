@@ -68,9 +68,22 @@ form label {
 
 #foodInput {
   width: 70vh;
+  background-color: transparent;
+  border-color: #92D4F4;
+  border-width: 0px 0px 1px 0px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  color: rgba(255, 255, 255, 1);
+  cursor: default;
 }
 
 [type=submit] {
   margin-top: 10px;
   margin-bottom: 10px;
+  background-color: #4893D8;
+  border-width: thin;
+  border-radius: 12px;
+  border-color: #4893D8;
+  color: rgba(255, 255, 255, 1);
 }
