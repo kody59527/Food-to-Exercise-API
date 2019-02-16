@@ -1,0 +1,76 @@
+html {
+  box-sizing: border-box;
+  background: url(https://i.imgur.com/1G9eONy.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.tinted {
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  overflow: auto;
+  top: 0px;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 1);
+}
+
+.hidden {
+  display: none;
+}
+
+.results-img {
+  height: auto;
+  width: 100%;
+}
+
+h1 {
+  white-space: nowrap;
+}
+
+.errorMessage {
+  display: hidden;
+  color: red;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.errorMessage,
+.results-img {
+  margin-top: 5vh;
+}
+
+form {
+  display: inline-block;
+}
+
+form label {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#foodInput {
+  width: 70vh;
+}
+
+[type=submit] {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
