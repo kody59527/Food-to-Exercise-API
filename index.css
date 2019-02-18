@@ -21,9 +21,11 @@ body {
   font-family: 'Karla', sans-serif;
 }
 
-.calNum, .exerMin, .servingNum {
+.calNum, 
+.exerMin, 
+.servingNum {
   color: #FF2D00;
-  font-size: 24px;
+  font-size: 4vh;
 }
 
 .container {
@@ -46,8 +48,7 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column; 
-  justify-content: space-around;
-  margin-top: 10px;
+  justify-content: space-between;
   width: 25%;
 }
 
@@ -61,14 +62,11 @@ body {
   font-weight: bold;
 }
 
-.foodCalorie, .foodTitle {
-  display: block;
-  font-size: 20px;
-  padding: 10px 0px;
-}
-
+.foodCalorie, 
 .foodTitle {
-  font-weight: bold;
+  display: block;
+  font-size: 3vh;
+  padding: 10px 0px;
 }
 
 .foodEntry {
@@ -89,6 +87,7 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
+  font-size: 2.5vh;
   justify-content: center;
   margin: 0;
 }
@@ -157,8 +156,7 @@ h1 {
 
   color: #FFFFFF;
 
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin: 10px;
 }
 
 .tinted {
@@ -180,7 +178,18 @@ h1 {
 
 @media only screen and (min-width: 1024px) {
   .foodResults {
-    padding: 5% 5%;
+    padding: 5vh 5vw;
+  }
+
+  .foodCalorie,
+  .foodTitle {
+    font-size: 4vh;
+  }
+
+  .calNum, 
+  .exerMin, 
+  .servingNum {
+    font-size: 5vh;
   }
 
   .results-list {
