@@ -14,8 +14,8 @@
     <div class="container">
         <h1>Know how long to exercise by your food.</h1>
         <form>
-          <input required type="input" name="foodInput" id="foodInput" placeholder="an apple and a yogurt">
-          <input type='submit' value='submit'>
+          <input required type="input" class="foodInput" id="foodInput" placeholder="an apple and a yogurt">
+          <input type='submit' class='submitButton' value='submit'>
         </form>
         <section class="results">
           <h2 class="results-title">Exercise List</h2>
@@ -48,36 +48,90 @@
               </section>
           </section>
           <section class='foodEntry'>
-            <h3>(<span class='servingNum'>1</span>) Hot pocket: <span class='calNum'>306</span> kcal</h3>
-            <section class='minuteResults'>
-              <p class='exerTitle'>Yoga</p><p><span class='exerMin'>102</span> min</p> 
+            <section class='foodResults'>
+              <div class='foodTitle'>
+                (<span class='servingNum'>1</span>) Hot pocket
+              </div>
+              <div class='foodCalorie'>
+                <span class='calNum'>306</span> kcal
+              </div>
+            </section>
+            <section class='exerEntry'>
+              <img class='exerPic' src="https://i.imgur.com/EKlFbhO.png" alt="A person doing yoga">
+              <p class='exerTitle'>Yoga</p><p><span class='exerMin'>102</span> min</p>
+            </section>
+            <section class='exerEntry'> 
+              <img class='exerPic' src="https://i.imgur.com/1oV52Id.png" alt="A person walking">
               <p class='exerTitle'>Walk</p><p><span class='exerMin'>40</span> min</p>
+            </section>
+            <section class='exerEntry'>
+              <img class='exerPic' src="https://i.imgur.com/5bEKQlU.png" alt="A person biking">
               <p class='exerTitle'>Bike</p><p><span class='exerMin'>37</span> min</p>
+            </section>
+            <section class='exerEntry'>
+              <img class='exerPic' src="https://i.imgur.com/WtzLbvd.png" alt="A person running">
               <p class='exerTitle'>Run</p><p><span class='exerMin'>23</span> min</p>
             </section>
-          </section>            
-            <section class='foodEntry'>
-              <h3>(<span class='servingNum'>1</span>) Pizza: <span class='calNum'>285</span> kcal</h3>
-              <p class='exerTitle'>Yoga</p><p><span class='exerMin'>95</span> min</p> 
-              <p class='exerTitle'>Walk</p><p><span class='exerMin'>38</span> min</p>
-              <p class='exerTitle'>Bike</p><p><span class='exerMin'>35</span> min</p>
-              <p class='exerTitle'>Run</p><p><span class='exerMin'>22</span> min</p>
-            </section>            
-            <section class='foodEntry'>
-              <h3>Total <span class='calNum'>686</span> kcal</h3>
-              <p class='exerTitle'>Yoga</p><p><span class='exerMin'>229</span> min</p> 
-              <p class='exerTitle'>Walk</p><p><span class='exerMin'>90</span> min</p>
-              <p class='exerTitle'>Bike</p><p><span class='exerMin'>84</span> min</p>
-              <p class='exerTitle'>Run</p><p><span class='exerMin'>52</span> min</p>
-            </section>
+        </section>
+        <section class='foodEntry'>
+          <section class='foodResults'>
+            <div class='foodTitle'>
+              (<span class='servingNum'>1</span>) Pizza
+            </div>
+            <div class='foodCalorie'>
+              <span class='calNum'>285</span> kcal
+            </div>
+          </section>
+          <section class='exerEntry'>
+            <img class='exerPic' src="https://i.imgur.com/EKlFbhO.png" alt="A person doing yoga">
+            <p class='exerTitle'>Yoga</p><p><span class='exerMin'>95</span> min</p>
+          </section>
+          <section class='exerEntry'> 
+            <img class='exerPic' src="https://i.imgur.com/1oV52Id.png" alt="A person walking">
+            <p class='exerTitle'>Walk</p><p><span class='exerMin'>38</span> min</p>
+          </section>
+          <section class='exerEntry'>
+            <img class='exerPic' src="https://i.imgur.com/5bEKQlU.png" alt="A person biking">
+            <p class='exerTitle'>Bike</p><p><span class='exerMin'>35</span> min</p>
+          </section>
+          <section class='exerEntry'>
+            <img class='exerPic' src="https://i.imgur.com/WtzLbvd.png" alt="A person running">
+            <p class='exerTitle'>Run</p><p><span class='exerMin'>22</span> min</p>
+          </section>
+      </section>
+      <section class='foodEntry'>
+        <section class='foodResults'>
+          <div class='foodTitle'>
+           Total
+          </div>
+          <div class='foodCalorie'>
+            <span class='calNum'>686</span> kcal
+          </div>
+        </section>
+        <section class='exerEntry'>
+          <img class='exerPic' src="https://i.imgur.com/EKlFbhO.png" alt="A person doing yoga">
+          <p class='exerTitle'>Yoga</p><p><span class='exerMin'>229</span> min</p>
+        </section>
+        <section class='exerEntry'> 
+          <img class='exerPic' src="https://i.imgur.com/1oV52Id.png" alt="A person walking">
+          <p class='exerTitle'>Walk</p><p><span class='exerMin'>90</span> min</p>
+        </section>
+        <section class='exerEntry'>
+          <img class='exerPic' src="https://i.imgur.com/5bEKQlU.png" alt="A person biking">
+          <p class='exerTitle'>Bike</p><p><span class='exerMin'>84</span> min</p>
+        </section>
+        <section class='exerEntry'>
+          <img class='exerPic' src="https://i.imgur.com/WtzLbvd.png" alt="A person running">
+          <p class='exerTitle'>Run</p><p><span class='exerMin'>52</span> min</p>
+        </section>
+    </section>
             <footer class='footer'>
               Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
                from <a href="https://www.flaticon.com/" 		    
                title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 		    
                title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
-            </div>
-          </div>
-        </section>
+        </div>
+      </div>
     </div>
   </div>
     <script src="index.js"></script>
