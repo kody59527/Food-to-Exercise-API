@@ -46,14 +46,14 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column; 
-  justify-content: space-evenly;
+  justify-content: space-around;
   margin-top: 10px;
   width: 25%;
 }
 
 .exerPic {
   height: auto;
-  width: 32px;
+  width: 5vh;
 }
 
 .exerTitle {
@@ -77,11 +77,12 @@ body {
   color: #000000;
   display: flex;
   flex-direction: row;
+  height: 25vh;
   justify-content: space-around;
   margin: 2vh 0vh;
   padding: 10px;
   text-align: center;
-  width: 90%;
+  width: 90vw;
 }
 
 .foodEntry p {
@@ -169,4 +170,21 @@ h1 {
   top: 0px;
   width: 100%;
   z-index: 1;
+}
+
+@media only screen and (min-width: 768px) {
+  .exerPic {
+    width: 7vh;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .foodResults {
+    padding: 5% 5%;
+  }
+
+  .results-list {
+    flex-flow: column wrap;
+    align-content: stretch;
+  }
 }
