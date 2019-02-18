@@ -46,6 +46,7 @@ function displayTotalCalories(totalCalories) {
   <p>Biking: ${totalBikingMinutes} min</p>
   <p>Running: ${totalRunningMinutes} min</p>`);
   $('.results').removeClass('hidden');
+  scrollToResults();
 }
 
 /* Listens for submit */
@@ -100,3 +101,9 @@ function sendRequest(foodInput) {
     $('.results').removeClass('hidden');
 });
 }
+
+function scrollToResults() {
+      $('html, body').animate({
+          scrollTop: $("#results-list").offset().top
+      }, 1000);
+  };
