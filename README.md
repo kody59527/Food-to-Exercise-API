@@ -1,4 +1,4 @@
-Calories to Exercise Search API
+Calories to exercise Search API
 <br>
 <br>
 [Live Page](link)

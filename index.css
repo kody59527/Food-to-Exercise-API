@@ -42,14 +42,14 @@ body {
 h1, h2 {
   white-space: nowrap;
   text-align: center;
-  font-size: 5vw;
+  font-size: calc(20px + 1vw);
 }
 
 .errorMessage {
   display: hidden;
   color: red;
   font-weight: bold;
-  font-size: 6vw;
+  font-size: calc(24px + 1vw);
   text-align: center;
 }
 
@@ -59,15 +59,23 @@ form {
   margin-bottom: 30vh;
 }
 
+a:link {
+  color: #92D4F4;
+}
+
+footer {
+  margin: 10px;
+}
+
 form label {
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
 #foodInput {
-  width: 42vh;
+  width: 50vh;
   height: 5vh;
-  font-size: 4vw;
+  font-size: calc(16px + 1vw);
 
   background-color: transparent;
   color: rgba(255, 255, 255, 1);
@@ -88,6 +96,8 @@ form label {
 
 .foodEntry {
   background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  flex-direction: row;
   border-radius: 12px;
   margin: 2vh;
   padding: 10px;
@@ -95,14 +105,45 @@ form label {
   text-align: center;
 }
 
+.exerTitle {
+  display: block;
+}
+
+.exerEntry {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; 
+}
+
 .foodEntry p {
+  margin: 10px;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-.servingNumber, .calNumber, .entryNumber {
+.servingNum, .calNum, .exerMin {
   color: #FF2D00;
   font-size: 24px;
+}
+
+.foodTitle, .foodCalorie {
+  display: block;
+  margin: 10px;
+}
+
+.foodResults {
+  margin: auto;
+  padding: 10px;
+}
+
+.exerTitle {
+  font-weight: bold;
+}
+
+.exerPic {
+  height: auto;
+  width: 16px;
 }
 
 [type=submit] {
