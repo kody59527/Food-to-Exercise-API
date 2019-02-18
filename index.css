@@ -28,8 +28,6 @@ body {
 }
 
 .container {
-  width: 100vw;
-  height: 100vh;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -41,27 +39,18 @@ body {
   display: none;
 }
 
-.results-img {
-  height: auto;
-  width: 100%;
-}
-
-h1 {
+h1, h2 {
   white-space: nowrap;
   text-align: center;
-  font-size: 4vw;
+  font-size: 5vw;
 }
 
 .errorMessage {
   display: hidden;
   color: red;
   font-weight: bold;
-  font-size: 24px;
-}
-
-.errorMessage,
-.results-img {
-  margin-top: 5vh;
+  font-size: 6vw;
+  text-align: center;
 }
 
 form {
@@ -92,6 +81,30 @@ form label {
   cursor: default;
 }
 
+.results-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.foodEntry {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 12px;
+  margin: 2vh;
+  padding: 10px;
+  color: rgba(0, 0, 0, 1);
+  text-align: center;
+}
+
+.foodEntry p {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.servingNumber, .calNumber, .entryNumber {
+  color: #FF2D00;
+  font-size: 24px;
+}
+
 [type=submit] {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -101,5 +114,9 @@ form label {
 
   background-color: #4893D8;
   border-color: #4893D8;
-  color: rgba(255, 255, 255, 1);
+  color: rgba(255, 255, 255, 1); 
+
+  background: url(https://i.imgur.com/f5DFB0A.png) no-repeat center;
+  background-size: 64px;
+  text-indent: -9999em;
 }

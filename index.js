@@ -24,11 +24,11 @@ function displayResults(response) {
     let foodName = response.foods[i].food_name.charAt(0).toUpperCase() + response.foods[i].food_name.slice(1);
     console.log(`${i} out of ${response.foods.length}`);
 
-    $('.results-list').append(`<h3>${response.foods[i].serving_qty} ${foodName} is ${foodCalories} calories</h3>
-    <p>${yogaMinutes} minutes of Hatha yoga</p> 
-    <p>${walkingMinutes} minutes of walking</p>
-    <p>${bikingMinutes} minutes of biking</p>
-    <p>${runningMinutes} minutes of running</p>`);
+    $('.results-list').append(`<h3>(${response.foods[i].serving_qty}) ${foodName}: ${foodCalories} kcal</h3>
+    <p>Hatha Yoga: ${yogaMinutes} min</p> 
+    <p>Walking: ${walkingMinutes} min</p>
+    <p>Biking: ${bikingMinutes} min</p>
+    <p>Running: ${runningMinutes} min</p>`);
   }    
   displayTotalCalories(totalCalories);
 }
@@ -40,11 +40,11 @@ function displayTotalCalories(totalCalories) {
   let totalBikingMinutes = Math.round((totalCalories / 8.2));
   let totalRunningMinutes = Math.round((totalCalories / 13.2));
   let totalYogaMinutes = Math.round((totalCalories / 3));
-  $('.results-list').append(`<h3>Your total calories is ${totalCalories} calories</h3>
-  <p>${totalYogaMinutes} minutes of Hatha yoga</p> 
-  <p>${totalWalkingMinutes} minutes of walking</p>
-  <p>${totalBikingMinutes} minutes of biking</p>
-  <p>${totalRunningMinutes} minutes of running</p>`);
+  $('.results-list').append(`<h3>Total: ${totalCalories} kcal</h3>
+  <p>Hatha Yoga: ${totalYogaMinutes} min</p> 
+  <p>Walking: ${totalWalkingMinutes} min</p>
+  <p>Biking: ${totalBikingMinutes} min</p>
+  <p>Running: ${totalRunningMinutes} min</p>`);
   $('.results').removeClass('hidden');
 }
 
