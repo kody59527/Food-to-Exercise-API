@@ -7,130 +7,29 @@
     <title>Calorie to Exercise Search</title>
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="tinted">
     <div class="container">
-        <h1>Know how long to exercise by your food.</h1>
-        <form>
-          <input required type="input" class="foodInput" id="foodInput" placeholder="an apple and a yogurt">
-          <input type='submit' class='submitButton' value='Search'>
+      <section class='homePage'>
+        <h1>Find how long to exercise by food</h1>
+        <form class='userSearch'>
+          <input required type="input" class="searchBar" id="searchBar" placeholder="an apple and a yogurt">
+          <button type='submit' class='submitButton'><i class="fa fa-search"></i></button>
         </form>
           <p class='errorMessage'></p>
-          <div class="results-list" id='results-list'>
-            <section class='foodEntry'>
-              <section class='foodResults'>
-                <div class='foodTitle'>
-                  (<span class='servingNum'>1</span>) Apple
-                </div>
-                <div class='foodCalorie'>
-                  <span class='calNum'>95</span> kcal
-                </div>
-              </section>
-              <section class='exerEntry'>
-                <img class='exerPic' src="https://i.imgur.com/EKlFbhO.png" alt="A person doing yoga">
-                <p class='exerTitle'>Yoga</p><p><span class='exerMin'>32</span> min</p>
-              </section>
-              <section class='exerEntry'> 
-                <img class='exerPic' src="https://i.imgur.com/1oV52Id.png" alt="A person walking">
-                <p class='exerTitle'>Walk</p><p><span class='exerMin'>13</span> min</p>
-              </section>
-              <section class='exerEntry'>
-                <img class='exerPic' src="https://i.imgur.com/5bEKQlU.png" alt="A person biking">
-                <p class='exerTitle'>Bike</p><p><span class='exerMin'>12</span> min</p>
-              </section>
-              <section class='exerEntry'>
-                <img class='exerPic' src="https://i.imgur.com/WtzLbvd.png" alt="A person running">
-                <p class='exerTitle'>Run</p><p><span class='exerMin'>7</span> min</p>
-              </section>
-          </section>
-          <section class='foodEntry'>
-            <section class='foodResults'>
-              <div class='foodTitle'>
-                (<span class='servingNum'>1</span>) Hot pocket
-              </div>
-              <div class='foodCalorie'>
-                <span class='calNum'>306</span> kcal
-              </div>
-            </section>
-            <section class='exerEntry'>
-              <img class='exerPic' src="https://i.imgur.com/EKlFbhO.png" alt="A person doing yoga">
-              <p class='exerTitle'>Yoga</p><p><span class='exerMin'>102</span> min</p>
-            </section>
-            <section class='exerEntry'> 
-              <img class='exerPic' src="https://i.imgur.com/1oV52Id.png" alt="A person walking">
-              <p class='exerTitle'>Walk</p><p><span class='exerMin'>40</span> min</p>
-            </section>
-            <section class='exerEntry'>
-              <img class='exerPic' src="https://i.imgur.com/5bEKQlU.png" alt="A person biking">
-              <p class='exerTitle'>Bike</p><p><span class='exerMin'>37</span> min</p>
-            </section>
-            <section class='exerEntry'>
-              <img class='exerPic' src="https://i.imgur.com/WtzLbvd.png" alt="A person running">
-              <p class='exerTitle'>Run</p><p><span class='exerMin'>23</span> min</p>
-            </section>
-        </section>
-        <section class='foodEntry'>
-          <section class='foodResults'>
-            <div class='foodTitle'>
-              (<span class='servingNum'>1</span>) Pizza
-            </div>
-            <div class='foodCalorie'>
-              <span class='calNum'>285</span> kcal
-            </div>
-          </section>
-          <section class='exerEntry'>
-            <img class='exerPic' src="https://i.imgur.com/EKlFbhO.png" alt="A person doing yoga">
-            <p class='exerTitle'>Yoga</p><p><span class='exerMin'>95</span> min</p>
-          </section>
-          <section class='exerEntry'> 
-            <img class='exerPic' src="https://i.imgur.com/1oV52Id.png" alt="A person walking">
-            <p class='exerTitle'>Walk</p><p><span class='exerMin'>38</span> min</p>
-          </section>
-          <section class='exerEntry'>
-            <img class='exerPic' src="https://i.imgur.com/5bEKQlU.png" alt="A person biking">
-            <p class='exerTitle'>Bike</p><p><span class='exerMin'>35</span> min</p>
-          </section>
-          <section class='exerEntry'>
-            <img class='exerPic' src="https://i.imgur.com/WtzLbvd.png" alt="A person running">
-            <p class='exerTitle'>Run</p><p><span class='exerMin'>22</span> min</p>
-          </section>
       </section>
-      <section class='foodEntry'>
-        <section class='foodResults'>
-          <div class='foodTitle'>
-           Total
-          </div>
-          <div class='foodCalorie'>
-            <span class='calNum'>686</span> kcal
-          </div>
-        </section>
-        <section class='exerEntry'>
-          <img class='exerPic' src="https://i.imgur.com/EKlFbhO.png" alt="A person doing yoga">
-          <p class='exerTitle'>Yoga</p><p><span class='exerMin'>229</span> min</p>
-        </section>
-        <section class='exerEntry'> 
-          <img class='exerPic' src="https://i.imgur.com/1oV52Id.png" alt="A person walking">
-          <p class='exerTitle'>Walk</p><p><span class='exerMin'>90</span> min</p>
-        </section>
-        <section class='exerEntry'>
-          <img class='exerPic' src="https://i.imgur.com/5bEKQlU.png" alt="A person biking">
-          <p class='exerTitle'>Bike</p><p><span class='exerMin'>84</span> min</p>
-        </section>
-        <section class='exerEntry'>
-          <img class='exerPic' src="https://i.imgur.com/WtzLbvd.png" alt="A person running">
-          <p class='exerTitle'>Run</p><p><span class='exerMin'>52</span> min</p>
-        </section>
-      </section>
-        </div>
-        <footer class='footer'>
-            <p>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
+          <div class="results-list hidden" id='results-list'>
+    </div>
+    <footer class='footer hidden'>
+      <p>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
              is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 		    
              title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
-            </p>
-            <p>Designed by Kody Baldwin. Powered by the Nutritionix API</p>
-          </footer>
+      </p>
+      <p>Designed by Kody Baldwin. Powered by the Nutritionix API</p>
+    </footer>
       </div>
     </div>
   </div>

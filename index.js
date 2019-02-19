@@ -4,7 +4,6 @@
 
 function clearResults() {
   $('.results-list').empty();
-  $('.results-title').removeClass('hidden');
   $('.errorMessage').addClass('hidden');
 }
 
@@ -24,11 +23,33 @@ function displayResults(response) {
     let foodName = response.foods[i].food_name.charAt(0).toUpperCase() + response.foods[i].food_name.slice(1);
     console.log(`${i} out of ${response.foods.length}`);
 
-    $('.results-list').append(`<h3>(${response.foods[i].serving_qty}) ${foodName}: ${foodCalories} kcal</h3>
-    <p>Hatha Yoga: ${yogaMinutes} min</p> 
-    <p>Walking: ${walkingMinutes} min</p>
-    <p>Biking: ${bikingMinutes} min</p>
-    <p>Running: ${runningMinutes} min</p>`);
+    $('.results-list').append(`
+    <section class='foodEntry'>
+    <section class='foodResults'>
+      <div class='foodTitle'>
+        (<span class='servingNum'>${response.foods[i].serving_qty}</span>) ${foodName}
+      </div>
+      <div class='foodCalorie'>
+        <span class='calNum'>${foodCalories}</span> kcal
+      </div>
+    </section>
+    <section class='exerEntry'>
+      <img class='exerPic' src="https://i.imgur.com/EKlFbhO.png" alt="A person doing yoga">
+      <p class='exerTitle'>Yoga</p><p><span class='exerMin'>${yogaMinutes}</span> min</p>
+    </section>
+    <section class='exerEntry'> 
+      <img class='exerPic' src="https://i.imgur.com/1oV52Id.png" alt="A person walking">
+      <p class='exerTitle'>Walk</p><p><span class='exerMin'>${walkingMinutes}</span> min</p>
+    </section>
+    <section class='exerEntry'>
+      <img class='exerPic' src="https://i.imgur.com/5bEKQlU.png" alt="A person biking">
+      <p class='exerTitle'>Bike</p><p><span class='exerMin'>${bikingMinutes}</span> min</p>
+    </section>
+    <section class='exerEntry'>
+      <img class='exerPic' src="https://i.imgur.com/WtzLbvd.png" alt="A person running">
+      <p class='exerTitle'>Run</p><p><span class='exerMin'>${runningMinutes}</span> min</p>
+    </section>
+    </section>`);
   }    
   displayTotalCalories(totalCalories);
 }
@@ -40,13 +61,35 @@ function displayTotalCalories(totalCalories) {
   let totalBikingMinutes = Math.round((totalCalories / 8.2));
   let totalRunningMinutes = Math.round((totalCalories / 13.2));
   let totalYogaMinutes = Math.round((totalCalories / 3));
-  $('.results-list').append(`<h3>Total: ${totalCalories} kcal</h3>
-  <p>Hatha Yoga: ${totalYogaMinutes} min</p> 
-  <p>Walking: ${totalWalkingMinutes} min</p>
-  <p>Biking: ${totalBikingMinutes} min</p>
-  <p>Running: ${totalRunningMinutes} min</p>`);
-  $('.results').removeClass('hidden');
-  scrollToResults();
+  $('.results-list').append(`
+  <section class='foodEntry'>
+  <section class='foodResults'>
+    <div class='foodTitle'>
+      Total
+    </div>
+    <div class='foodCalorie'>
+      <span class='calNum'>${totalCalories}</span> kcal
+    </div>
+  </section>
+  <section class='exerEntry'>
+    <img class='exerPic' src="https://i.imgur.com/EKlFbhO.png" alt="A person doing yoga">
+    <p class='exerTitle'>Yoga</p><p><span class='exerMin'>${totalYogaMinutes}</span> min</p>
+  </section>
+  <section class='exerEntry'> 
+    <img class='exerPic' src="https://i.imgur.com/1oV52Id.png" alt="A person walking">
+    <p class='exerTitle'>Walk</p><p><span class='exerMin'>${totalWalkingMinutes}</span> min</p>
+  </section>
+  <section class='exerEntry'>
+    <img class='exerPic' src="https://i.imgur.com/5bEKQlU.png" alt="A person biking">
+    <p class='exerTitle'>Bike</p><p><span class='exerMin'>${totalBikingMinutes}</span> min</p>
+  </section>
+  <section class='exerEntry'>
+    <img class='exerPic' src="https://i.imgur.com/WtzLbvd.png" alt="A person running">
+    <p class='exerTitle'>Run</p><p><span class='exerMin'>${totalRunningMinutes}</span> min</p>
+  </section>
+  </section>`);
+  $('.results-list').removeClass('hidden');
+  $('.footer').removeClass('hidden');
 }
 
 /* Listens for submit */
@@ -54,8 +97,9 @@ function displayTotalCalories(totalCalories) {
 function watchForm() {
   $('form').submit(event => {
     event.preventDefault();
-    sendRequest(foodInput);
+    sendRequest(searchBar);
   });
+  scrollToResults();
 }
 
 $(function() {
@@ -65,8 +109,8 @@ $(function() {
 
 /* POST REQUEST */
 
-function sendRequest(foodInput) {
-  let finalInput = `{\n    \"query\": \"${foodInput.value}\"\n}`
+function sendRequest(searchBar) {
+  let finalInput = `{\n    \"query\": \"${searchBar.value}\"\n}`
   clearResults();
 
   let settings = {
@@ -98,7 +142,7 @@ function sendRequest(foodInput) {
     $('.results-list').empty();
     $('.errorMessage').replaceWith(`<p class='errorMessage'>${err.status} ${err.responseJSON.message}</p>`);
     $('.results-title').addClass('hidden');
-    $('.results').removeClass('hidden');
+    $('.results-list').removeClass('hidden');
 });
 }
 
