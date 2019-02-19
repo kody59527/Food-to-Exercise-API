@@ -80,7 +80,7 @@ body {
   margin: 4vh 0vh;
   padding: 10px;
   text-align: center;
-  width: 90vw;
+  width: 80vw;
 }
 
 .foodEntry p {
@@ -154,17 +154,17 @@ h1 {
 }
 
 .submitButton{
-  float: right;
-  width: 15%;
-  padding: 4px;
-  height: 100%;
-  border-radius: 0px 100px 100px 0px;
   background: #65B7F3;
-  color: white;
-  font-size: 17px;
+  border-radius: 0px 100px 100px 0px;
   border: 1px solid #65B7F3;
   border-left: none;
+  color: white;
   cursor: pointer;
+  float: right;
+  font-size: 17px;
+  height: 100%;
+  padding: 4px;
+  width: 15%;
   }
 
 .tinted {

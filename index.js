@@ -21,7 +21,6 @@ function displayResults(response) {
     let bikingMinutes = Math.round((foodCalories / 8.2));
     let runningMinutes = Math.round((foodCalories / 13.2));
     let foodName = response.foods[i].food_name.charAt(0).toUpperCase() + response.foods[i].food_name.slice(1);
-    console.log(`${i} out of ${response.foods.length}`);
 
     $('.results-list').append(`
     <section class='foodEntry'>
@@ -99,11 +98,9 @@ function watchForm() {
     event.preventDefault();
     sendRequest(searchBar);
   });
-  scrollToResults();
 }
 
 $(function() {
-  console.log('App loaded! Waiting for submit!');
   watchForm();
 });
 
@@ -130,24 +127,15 @@ function sendRequest(searchBar) {
   }
 
   settings.data = finalInput;
-  console.log(settings);
 
   $.ajax(settings).done(function (response) {
-    console.log(response);
     displayResults(response);
   });
 
   $.ajax(settings).fail(function (err) {
-    console.log(err)
     $('.results-list').empty();
     $('.errorMessage').replaceWith(`<p class='errorMessage'>${err.status} ${err.responseJSON.message}</p>`);
     $('.results-title').addClass('hidden');
     $('.results-list').removeClass('hidden');
-});
+  });
 }
-
-function scrollToResults() {
-      $('html, body').animate({
-          scrollTop: $("#results-list").offset().top
-      }, 1000);
-  };
