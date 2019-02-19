@@ -1,7 +1,7 @@
 Calories to exercise Search API
 <br>
 <br>
-[Live Page](link)
+[Live Page](https://kody59527.github.io/CalorietoExercise/)
 <br>
 <br>
 A web app that uses the Nutritionix Food API to search for food entries and then returns the amount of exercise needed to burn the calories off.
