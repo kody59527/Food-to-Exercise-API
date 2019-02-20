@@ -9,24 +9,25 @@ function clearResults() {
 
 /* Appends results and calculates minutes from calories*/
 
-function displayResults(response) {
+function displayResults(finalData) {
+  console.log(finalData);
   let totalCalories = 0;
-  for (let i = 0; i < response.foods.length; i++) {
+  for (let i = 0; i < finalData.foodData.foods.length; i++) {
 
-    let foodCalories = Math.round(response.foods[i].nf_calories);
+    let foodCalories = Math.round(finalData.foodData.foods[i].nf_calories);
     totalCalories = totalCalories + foodCalories;
 
     let yogaMinutes = Math.round((foodCalories / 3))
     let walkingMinutes = Math.round((foodCalories / 7.6));
     let bikingMinutes = Math.round((foodCalories / 8.2));
     let runningMinutes = Math.round((foodCalories / 13.2));
-    let foodName = response.foods[i].food_name.charAt(0).toUpperCase() + response.foods[i].food_name.slice(1);
+    let foodName = finalData.foodData.foods[i].food_name.charAt(0).toUpperCase() + finalData.foodData.foods[i].food_name.slice(1);
 
     $('.results-list').append(`
     <section class='foodEntry'>
     <section class='foodResults'>
       <div class='foodTitle'>
-        (<span class='servingNum'>${response.foods[i].serving_qty}</span>) ${foodName}
+        (<span class='servingNum'>${finalData.foodData.foods[i].serving_qty}</span>) ${foodName}
       </div>
       <div class='foodCalorie'>
         <span class='calNum'>${foodCalories}</span> kcal
@@ -120,7 +121,6 @@ function sendRequest(searchBar) {
       "x-app-id": "b55b7c9e",
       "x-app-key": "bb03ea62701acc02eb82854413de171d",
       "cache-control": "no-cache",
-      "Postman-Token": "8ee0afb1-0b68-405d-a30c-819a625d6964"
     },
     "processData": false,
     "data": "{}"
@@ -129,7 +129,45 @@ function sendRequest(searchBar) {
   settings.data = finalInput;
 
   $.ajax(settings).done(function (response) {
-    displayResults(response);
+    exerciseRequest(response);
+  });
+
+  $.ajax(settings).fail(function (err) {
+    $('.results-list').empty();
+    $('.errorMessage').replaceWith(`<p class='errorMessage'>${err.status} ${err.responseJSON.message}</p>`);
+    $('.results-title').addClass('hidden');
+    $('.results-list').removeClass('hidden');
+  });
+}
+
+function exerciseRequest(response) {
+  let foodData = response;
+  console.log(foodData);
+  /* Query will slice second to last exercise from results, must double */
+  let calorieMin = `{\n    \"query\": \"1 minute yoga, 1 minute walk, 1 minute bike, 1 minute bike, and 1 minute run.\"\n}`;
+  let settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://trackapi.nutritionix.com/v2/natural/exercise",
+    "method": "POST",
+    "headers": {
+      "Content-Type": "application/json",
+      "x-app-id": "b55b7c9e",
+      "x-app-key": "bb03ea62701acc02eb82854413de171d",
+      "cache-control": "no-cache",
+    },
+    "processData": false,
+    "data": "{}"
+  }
+
+  //console.log(settings);
+  settings.data = calorieMin;
+  let finalData = {};
+
+  $.ajax(settings).done(function (exerResponse) {
+    let exerData = exerResponse.exercises;
+    finalData = {foodData, exerData};
+    displayResults(finalData);
   });
 
   $.ajax(settings).fail(function (err) {
