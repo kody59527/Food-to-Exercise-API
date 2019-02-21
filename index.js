@@ -12,15 +12,16 @@ function clearResults() {
 function displayResults(finalData) {
   console.log(finalData);
   let totalCalories = 0;
+  let totalData = {};
   for (let i = 0; i < finalData.foodData.foods.length; i++) {
 
     let foodCalories = Math.round(finalData.foodData.foods[i].nf_calories);
     totalCalories = totalCalories + foodCalories;
 
-    let yogaMinutes = Math.round((foodCalories / 3))
-    let walkingMinutes = Math.round((foodCalories / 7.6));
-    let bikingMinutes = Math.round((foodCalories / 8.2));
-    let runningMinutes = Math.round((foodCalories / 13.2));
+    let yogaMinutes = Math.round((foodCalories / finalData.exerData[0].nf_calories))
+    let walkingMinutes = Math.round((foodCalories / finalData.exerData[1].nf_calories));
+    let bikingMinutes = Math.round((foodCalories / finalData.exerData[2].nf_calories));
+    let runningMinutes = Math.round((foodCalories / finalData.exerData[3].nf_calories));
     let foodName = finalData.foodData.foods[i].food_name.charAt(0).toUpperCase() + finalData.foodData.foods[i].food_name.slice(1);
 
     $('.results-list').append(`
@@ -50,17 +51,21 @@ function displayResults(finalData) {
       <p class='exerTitle'>Run</p><p><span class='exerMin'>${runningMinutes}</span> min</p>
     </section>
     </section>`);
-  }    
-  displayTotalCalories(totalCalories);
+
+    totalData = {
+      totalCalories:  `${totalCalories}`, 
+      yogaMinutes: `${yogaMinutes}`, 
+      walkingMinutes: `${walkingMinutes}`, 
+      bikingMinutes: `${bikingMinutes}`, 
+      runningMinutes: `${runningMinutes}`
+    };
+  } 
+  displayTotalCalories(totalData);
 }
 
-/* Displays total calories and minute count */
+/* Uses object totalData for total calories and exercise data for the total */
 
-function displayTotalCalories(totalCalories) {
-  let totalWalkingMinutes = Math.round((totalCalories / 7.6));
-  let totalBikingMinutes = Math.round((totalCalories / 8.2));
-  let totalRunningMinutes = Math.round((totalCalories / 13.2));
-  let totalYogaMinutes = Math.round((totalCalories / 3));
+function displayTotalCalories(totalData) {
   $('.results-list').append(`
   <section class='foodEntry'>
   <section class='foodResults'>
@@ -68,24 +73,24 @@ function displayTotalCalories(totalCalories) {
       Total
     </div>
     <div class='foodCalorie'>
-      <span class='calNum'>${totalCalories}</span> kcal
+      <span class='calNum'>${totalData.totalCalories}</span> kcal
     </div>
   </section>
   <section class='exerEntry'>
     <img class='exerPic' src="https://i.imgur.com/EKlFbhO.png" alt="A person doing yoga">
-    <p class='exerTitle'>Yoga</p><p><span class='exerMin'>${totalYogaMinutes}</span> min</p>
+    <p class='exerTitle'>Yoga</p><p><span class='exerMin'>${Math.round((totalData.totalCalories / totalData.runningMinutes))}</span> min</p>
   </section>
   <section class='exerEntry'> 
     <img class='exerPic' src="https://i.imgur.com/1oV52Id.png" alt="A person walking">
-    <p class='exerTitle'>Walk</p><p><span class='exerMin'>${totalWalkingMinutes}</span> min</p>
+    <p class='exerTitle'>Walk</p><p><span class='exerMin'>${Math.round((totalData.totalCalories / totalData.yogaMinutes))}</span> min</p>
   </section>
   <section class='exerEntry'>
     <img class='exerPic' src="https://i.imgur.com/5bEKQlU.png" alt="A person biking">
-    <p class='exerTitle'>Bike</p><p><span class='exerMin'>${totalBikingMinutes}</span> min</p>
+    <p class='exerTitle'>Bike</p><p><span class='exerMin'>${Math.round((totalData.totalCalories / totalData.bikingMinutes))}</span> min</p>
   </section>
   <section class='exerEntry'>
     <img class='exerPic' src="https://i.imgur.com/WtzLbvd.png" alt="A person running">
-    <p class='exerTitle'>Run</p><p><span class='exerMin'>${totalRunningMinutes}</span> min</p>
+    <p class='exerTitle'>Run</p><p><span class='exerMin'>${Math.round((totalData.totalCalories / totalData.runningMinutes))}</span> min</p>
   </section>
   </section>`);
   $('.results-list').removeClass('hidden');
@@ -108,9 +113,8 @@ $(function() {
 /* POST REQUEST */
 
 function sendRequest(searchBar) {
-  let finalInput = `{\n    \"query\": \"${searchBar.value}\"\n}`
+  let finalInput = `{\n    \"query\": \"${searchBar.value}\"\n}`;
   clearResults();
-
   let settings = {
     "async": true,
     "crossDomain": true,
@@ -122,13 +126,16 @@ function sendRequest(searchBar) {
       "x-app-key": "bb03ea62701acc02eb82854413de171d",
       "cache-control": "no-cache",
     },
+
     "processData": false,
     "data": "{}"
   }
 
   settings.data = finalInput;
+  console.log(settings);
 
   $.ajax(settings).done(function (response) {
+    console.log(response);
     exerciseRequest(response);
   });
 
@@ -142,9 +149,25 @@ function sendRequest(searchBar) {
 
 function exerciseRequest(response) {
   let foodData = response;
+
+  console.log(weightInput.value);
+  let userWeight = weightInput.value; 
+  if (weightType.value == 'lbs') {
+    userWeight = (userWeight / 2.205);
+  };
+  /*
+  \"weight_kg\": \"${userWeight}\"\n
+  \"age\": \"${searchBar.value}\"\n}`
+  \"gender\": \"${genderInput.value}\"
+*/
+
   console.log(foodData);
   /* Query will slice second to last exercise from results, must double */
-  let calorieMin = `{\n    \"query\": \"1 minute yoga, 1 minute walk, 1 minute bike, 1 minute bike, and 1 minute run.\"\n}`;
+  let exerQuery = `{\n    \"query\": \"1 minute yoga, 1 minute walk, 1 minute bike, 1 minute bike, and 1 minute run.\",
+    \"weight_kg\": \"${userWeight}\",
+    \"age\": \"${ageInput.value}\",
+    \"gender\": \"${genderInput.value}\"}`;
+
   let settings = {
     "async": true,
     "crossDomain": true,
@@ -160,13 +183,14 @@ function exerciseRequest(response) {
     "data": "{}"
   }
 
-  //console.log(settings);
-  settings.data = calorieMin;
+  settings.data = exerQuery;
+  console.log(settings);
   let finalData = {};
 
   $.ajax(settings).done(function (exerResponse) {
     let exerData = exerResponse.exercises;
     finalData = {foodData, exerData};
+    console.log(finalData);
     displayResults(finalData);
   });
 

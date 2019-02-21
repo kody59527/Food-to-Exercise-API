@@ -16,6 +16,18 @@
       <section class='homePage'>
         <h1>Find how long to exercise by food</h1>
         <form class='userSearch'>
+          <label for="weightInput">Weight: </label>
+          <input required id='weightInput' type="number" value="140">
+          <select required id='weightType' type="text" value='lbs'>
+            <option value="lbs">lbs</option>
+            <option value="kg">kg</option>
+          <label for="ageInput">Age: </label>
+          <input required id='ageInput' type="number" max='116' value='25'>
+          <label for="genderInput">Gender: </label>
+          <select required id='genderInput' type="text" value='male'>
+            <option value="male">male</option>
+            <option value="female">female</option>
+          <label for="SearchBar">Search: </label>
           <input required type="input" class="searchBar" id="searchBar" placeholder="an apple and a yogurt">
           <button type='submit' class='submitButton'><i class="fa fa-search"></i></button>
         </form>
