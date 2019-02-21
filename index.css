@@ -113,16 +113,17 @@ form {
 
 form label {
   display: block;
-  font-size: 2.5vh;
+  font-size: 3vh;
+  font-weight: bold;
+  margin: auto;
   text-align: center;
   width: 80%;
 }
 
 h1 {
-  font-size: 5vw;
+  font-size: 6vw;
   font-weight: normal;
   margin-bottom: 8vh;
-  margin-right: 7vw;
   text-align: center;
   white-space: nowrap;
 }
@@ -135,9 +136,15 @@ h1 {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 45vh;
+  height: 50vh;
   justify-content: center;
   width: 90vw;
+}
+
+.lineRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 input#searchBar.searchBar {
@@ -165,7 +172,7 @@ select:active,
 select:hover,
 input:active,
 input:hover {
-  outline-color: #FF2D00;
+  outline-color: #ffffff;
 }
 
 .submitButton{
@@ -178,14 +185,9 @@ input:hover {
   float: right;
   font-size: 17px;
   height: 100%;
-  padding: 15px;
+  padding: 16px;
   width: 15vw;
   }
-
-.weightForm input {
-  display: inline-block;
-  width: 30%;
-}
 
 .tinted {
   background: rgba(0, 0, 0, 0.8);
@@ -199,7 +201,17 @@ input:hover {
 }
 
 .userForm {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 13vh;
+  justify-content: center;
   width: 33%;
+}
+
+.userForm select {
+  border-bottom-width: 1px;
+  border-width: 0px 0px 1px 0px;
 }
 
 .userSearch {
@@ -208,21 +220,46 @@ input:hover {
   width: 90vw;
 }
 
+.userSearch input {
+  width: 35%;
+  border-width: 0px 0px 1px 0px;
+}
+
 .userSearch input, .userSearch select {
     background-color: transparent;
     border-color: #FFFFFF;
-    border-radius: 100px;
-    border-width: 1px;
     box-shadow: none;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     color: #FFFFFF;
     cursor: default;
-    font-size: 4vw;
-    height: 6vw;
-    margin: 1vh 0vh;
-    width: 80%;
+    font-size: 3vh;
+    height: 7vw;
+    margin: 3vh 0vh;
     text-align: center;
+}
+
+.userSearch select {
+  width: 80%;
+}
+
+.weightForm {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 13vh;
+  width: 33%;
+}
+
+.weightForm input {
+  border-bottom-width: 1px;
+  display: inline-block;
+  width: 35%;
+}
+
+.weightForm select {
+  border-width: 0;
+  width: 50%;
 }
 
 @media only screen and (min-width: 768px) {

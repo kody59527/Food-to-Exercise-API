@@ -18,11 +18,13 @@
         <form class='userSearch'>
           <section class='weightForm'>
             <label for="weightInput">Weight</label>
-            <input required id='weightInput' type="number" value="140" min="1" max="999">
-            <select required id='weightType' type="text" value='lbs'>
-              <option value="lbs">lbs</option>
-              <option value="kg">kg</option>
-            </select>
+            <div class='lineRow'>
+              <input required id='weightInput' type="number" value="150" min="1" max="999">
+              <select required id='weightType' type="text" value='lbs'>
+                <option value="lbs">lbs</option>
+                <option value="kg">kg</option>
+              </select>
+            </div>
           </section>
           <section class='userForm'>
             <label for="ageInput">Age</label>
@@ -31,8 +33,8 @@
           <section class='userForm'>
             <label for="genderInput">Gender</label>
             <select required id='genderInput' type="text" value='male'>
-              <option value="male">male</option>
-              <option value="female">female</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
             </select>
           </section>
         </section>
