@@ -112,14 +112,17 @@ form {
 }
 
 form label {
-  padding-bottom: 10px;
-  padding-top: 10px;
+  display: block;
+  font-size: 2.5vh;
+  text-align: center;
+  width: 80%;
 }
 
 h1 {
   font-size: 5vw;
   font-weight: normal;
   margin-bottom: 8vh;
+  margin-right: 7vw;
   text-align: center;
   white-space: nowrap;
 }
@@ -132,12 +135,12 @@ h1 {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 70vh;
+  height: 45vh;
   justify-content: center;
   width: 90vw;
 }
 
-.searchBar {
+input#searchBar.searchBar {
   background-color: transparent;
   border-color: #FFFFFF;
   border-radius: 100px 0px 0px 100px;
@@ -150,7 +153,19 @@ h1 {
   font-size: 3vh;
   height: 100%;
   padding: 15px;
-  width: 85%;
+  text-align: left;
+  width: 75vw;
+}
+
+option {
+    background-color: #000000;
+}
+
+select:active, 
+select:hover,
+input:active,
+input:hover {
+  outline-color: #FF2D00;
 }
 
 .submitButton{
@@ -163,9 +178,14 @@ h1 {
   float: right;
   font-size: 17px;
   height: 100%;
-  padding: 4px;
-  width: 15%;
+  padding: 15px;
+  width: 15vw;
   }
+
+.weightForm input {
+  display: inline-block;
+  width: 30%;
+}
 
 .tinted {
   background: rgba(0, 0, 0, 0.8);
@@ -176,6 +196,33 @@ h1 {
   top: 0px;
   width: 100%;
   z-index: 1;
+}
+
+.userForm {
+  width: 33%;
+}
+
+.userSearch {
+  display: flex;
+  flex-direction: row;
+  width: 90vw;
+}
+
+.userSearch input, .userSearch select {
+    background-color: transparent;
+    border-color: #FFFFFF;
+    border-radius: 100px;
+    border-width: 1px;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    color: #FFFFFF;
+    cursor: default;
+    font-size: 4vw;
+    height: 6vw;
+    margin: 1vh 0vh;
+    width: 80%;
+    text-align: center;
 }
 
 @media only screen and (min-width: 768px) {

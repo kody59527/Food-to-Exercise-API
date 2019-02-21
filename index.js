@@ -10,11 +10,9 @@ function clearResults() {
 /* Appends results and calculates minutes from calories*/
 
 function displayResults(finalData) {
-  console.log(finalData);
   let totalCalories = 0;
   let totalData = {};
   for (let i = 0; i < finalData.foodData.foods.length; i++) {
-
     let foodCalories = Math.round(finalData.foodData.foods[i].nf_calories);
     totalCalories = totalCalories + foodCalories;
 
@@ -115,6 +113,7 @@ $(function() {
 function sendRequest(searchBar) {
   let finalInput = `{\n    \"query\": \"${searchBar.value}\"\n}`;
   clearResults();
+
   let settings = {
     "async": true,
     "crossDomain": true,
@@ -132,10 +131,8 @@ function sendRequest(searchBar) {
   }
 
   settings.data = finalInput;
-  console.log(settings);
 
   $.ajax(settings).done(function (response) {
-    console.log(response);
     exerciseRequest(response);
   });
 
@@ -149,19 +146,11 @@ function sendRequest(searchBar) {
 
 function exerciseRequest(response) {
   let foodData = response;
-
-  console.log(weightInput.value);
   let userWeight = weightInput.value; 
+
   if (weightType.value == 'lbs') {
     userWeight = (userWeight / 2.205);
   };
-  /*
-  \"weight_kg\": \"${userWeight}\"\n
-  \"age\": \"${searchBar.value}\"\n}`
-  \"gender\": \"${genderInput.value}\"
-*/
-
-  console.log(foodData);
   /* Query will slice second to last exercise from results, must double */
   let exerQuery = `{\n    \"query\": \"1 minute yoga, 1 minute walk, 1 minute bike, 1 minute bike, and 1 minute run.\",
     \"weight_kg\": \"${userWeight}\",
@@ -184,13 +173,11 @@ function exerciseRequest(response) {
   }
 
   settings.data = exerQuery;
-  console.log(settings);
   let finalData = {};
 
   $.ajax(settings).done(function (exerResponse) {
     let exerData = exerResponse.exercises;
     finalData = {foodData, exerData};
-    console.log(finalData);
     displayResults(finalData);
   });
 
