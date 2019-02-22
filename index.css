@@ -138,7 +138,7 @@ h1 {
   flex-direction: column;
   height: 50vh;
   justify-content: center;
-  width: 90vw;
+  width: 90vw
 }
 
 .lineRow {
@@ -147,7 +147,7 @@ h1 {
   justify-content: center;
 }
 
-input#searchBar.searchBar {
+.searchBar {
   background-color: transparent;
   border-color: #FFFFFF;
   border-radius: 100px 0px 0px 100px;
@@ -168,6 +168,10 @@ option {
     background-color: #000000;
 }
 
+.searchForm {
+  height: 8vh;
+}
+
 select:active, 
 select:hover,
 input:active,
@@ -183,9 +187,8 @@ input:hover {
   color: white;
   cursor: pointer;
   float: right;
-  font-size: 17px;
+  font-size: 3vh;
   height: 100%;
-  padding: 16px;
   width: 15vw;
   }
 
@@ -206,7 +209,7 @@ input:hover {
   flex-direction: column;
   height: 13vh;
   justify-content: center;
-  width: 33%;
+  width: 33vw;
 }
 
 .userForm select {
@@ -243,23 +246,37 @@ input:hover {
   width: 80%;
 }
 
-.weightForm {
+.kgForm {
   align-items: center;
   display: flex;
   flex-direction: column;
   height: 13vh;
-  width: 33%;
+  width: 33vw;
 }
 
-.weightForm input {
+.kgForm input {
   border-bottom-width: 1px;
   display: inline-block;
+  height: 3.6vh;
   width: 35%;
 }
 
-.weightForm select {
-  border-width: 0;
+.kgForm select {
+  border-width: 0px 0px 1px 0px;
+  height: 3.6vh;
   width: 50%;
+}
+
+@media only screen and (min-width: 375px) {
+  .userSearch select {
+    width: 25vw;
+  }
+}
+
+@media only screen and (min-width: 425px) {
+  .userSearch select {
+    width: 20vw;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -276,11 +293,19 @@ input:hover {
   }
 
   .searchBar {
-    width: 93%;
+    width: 50vw;
   }
 
   .submitButton {
-    width: 7%;
+    width: 8vw;
+  }
+
+  .userSearch input {
+    width: 6vw;
+  }
+
+  .userSearch select {
+    width: 13vw;
   }
 }
 
@@ -297,7 +322,7 @@ input:hover {
 
   .foodCalorie,
   .foodTitle {
-    font-size: 4vh;
+    font-size: 2.5vh;
   }
 
   h1 {
@@ -308,9 +333,18 @@ input:hover {
     padding: 20px;
   }
 
+  .submitButton
+  {
+    width: 4vw;
+  }
+
   .results-list {
     flex-flow: column wrap;
     align-content: stretch;
+  }
+
+  .userSearch select {
+    width: 10vw;
   }
 }
 
@@ -321,6 +355,14 @@ input:hover {
 
   h1 {
     font-size: 6vh;
+  }
+
+  .submitButton {
+    font-size: 3vh;
+  }
+
+  .userSearch select {
+    width: 8vw;
   }
 }
 

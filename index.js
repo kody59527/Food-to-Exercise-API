@@ -11,17 +11,16 @@ function clearResults() {
 
 function displayResults(finalData) {
   let totalCalories = 0;
-  let totalData = {};
   for (let i = 0; i < finalData.foodData.foods.length; i++) {
     let foodCalories = Math.round(finalData.foodData.foods[i].nf_calories);
     totalCalories = totalCalories + foodCalories;
-
+    console.log(`totalCalories ${totalCalories}`);
     let yogaMinutes = Math.round((foodCalories / finalData.exerData[0].nf_calories))
     let walkingMinutes = Math.round((foodCalories / finalData.exerData[1].nf_calories));
     let bikingMinutes = Math.round((foodCalories / finalData.exerData[2].nf_calories));
     let runningMinutes = Math.round((foodCalories / finalData.exerData[3].nf_calories));
     let foodName = finalData.foodData.foods[i].food_name.charAt(0).toUpperCase() + finalData.foodData.foods[i].food_name.slice(1);
-
+    console.log(`Actual rates ${yogaMinutes}, ${walkingMinutes}, ${bikingMinutes}, and ${runningMinutes}`);
     $('.results-list').append(`
     <section class='foodEntry'>
     <section class='foodResults'>
@@ -49,15 +48,14 @@ function displayResults(finalData) {
       <p class='exerTitle'>Run</p><p><span class='exerMin'>${runningMinutes}</span> min</p>
     </section>
     </section>`);
-
-    totalData = {
-      totalCalories:  `${totalCalories}`, 
-      yogaMinutes: `${yogaMinutes}`, 
-      walkingMinutes: `${walkingMinutes}`, 
-      bikingMinutes: `${bikingMinutes}`, 
-      runningMinutes: `${runningMinutes}`
-    };
   } 
+  let totalData = {
+    totalCalories:  `${totalCalories}`, 
+    yogaMinutes: `${finalData.exerData[0].nf_calories}`, 
+    walkingMinutes: `${finalData.exerData[1].nf_calories}`, 
+    bikingMinutes: `${finalData.exerData[2].nf_calories}`, 
+    runningMinutes: `${finalData.exerData[3].nf_calories}`
+  };
   displayTotalCalories(totalData);
 }
 
@@ -76,19 +74,19 @@ function displayTotalCalories(totalData) {
   </section>
   <section class='exerEntry'>
     <img class='exerPic' src="https://i.imgur.com/EKlFbhO.png" alt="A person doing yoga">
-    <p class='exerTitle'>Yoga</p><p><span class='exerMin'>${Math.round((totalData.totalCalories / totalData.runningMinutes))}</span> min</p>
+    <p class='exerTitle'>Yoga</p><p><span class='exerMin'>${Math.round(totalData.totalCalories / totalData.yogaMinutes)}</span> min</p>
   </section>
   <section class='exerEntry'> 
     <img class='exerPic' src="https://i.imgur.com/1oV52Id.png" alt="A person walking">
-    <p class='exerTitle'>Walk</p><p><span class='exerMin'>${Math.round((totalData.totalCalories / totalData.yogaMinutes))}</span> min</p>
+    <p class='exerTitle'>Walk</p><p><span class='exerMin'>${Math.round(totalData.totalCalories / totalData.walkingMinutes)}</span> min</p>
   </section>
   <section class='exerEntry'>
     <img class='exerPic' src="https://i.imgur.com/5bEKQlU.png" alt="A person biking">
-    <p class='exerTitle'>Bike</p><p><span class='exerMin'>${Math.round((totalData.totalCalories / totalData.bikingMinutes))}</span> min</p>
+    <p class='exerTitle'>Bike</p><p><span class='exerMin'>${Math.round(totalData.totalCalories / totalData.bikingMinutes)}</span> min</p>
   </section>
   <section class='exerEntry'>
     <img class='exerPic' src="https://i.imgur.com/WtzLbvd.png" alt="A person running">
-    <p class='exerTitle'>Run</p><p><span class='exerMin'>${Math.round((totalData.totalCalories / totalData.runningMinutes))}</span> min</p>
+    <p class='exerTitle'>Run</p><p><span class='exerMin'>${Math.round(totalData.totalCalories / totalData.runningMinutes)}</span> min</p>
   </section>
   </section>`);
   $('.results-list').removeClass('hidden');
