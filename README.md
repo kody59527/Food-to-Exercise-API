@@ -1,6 +1,12 @@
 Food to Exercise Search API
 <br>
 <br>
+[Desktop Screenshot](https://i.imgur.com/nEagMYo.png) 
+<br>
+<br>
+[Mobile Screenshot](https://i.imgur.com/cWiGQXu.png)
+<br>
+<br>
 [Live Page](https://kody59527.github.io/CalorietoExercise/)
 <br>
 <br>
