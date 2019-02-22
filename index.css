@@ -21,6 +21,11 @@ body {
   font-family: 'Karla', sans-serif;
 }
 
+.container.fade-out {
+  opacity: 0;
+  transition: none;
+}
+
 .calNum, 
 .exerMin, 
 .servingNum {
@@ -65,7 +70,7 @@ body {
 .foodCalorie, 
 .foodTitle {
   display: block;
-  font-size: 3vh;
+  font-size: 2.5vh;
   padding: 10px 0px;
 }
 
@@ -209,6 +214,7 @@ input:hover {
   flex-direction: column;
   height: 13vh;
   justify-content: center;
+  margin-top: 8vh;
   width: 33vw;
 }
 
@@ -218,6 +224,7 @@ input:hover {
 }
 
 .userSearch {
+  align-items: center;
   display: flex;
   flex-direction: row;
   width: 90vw;
@@ -243,7 +250,11 @@ input:hover {
 }
 
 .userSearch select {
-  width: 80%;
+  width: 27vw;
+}
+
+select#kgType {
+  width: 14vw;
 }
 
 .kgForm {
@@ -251,6 +262,7 @@ input:hover {
   display: flex;
   flex-direction: column;
   height: 13vh;
+  margin-top: 8vh;
   width: 33vw;
 }
 
@@ -267,15 +279,29 @@ input:hover {
   width: 50%;
 }
 
+/* Media */
+
 @media only screen and (min-width: 375px) {
+  select .kgType {
+    width: 12vw;
+  }
+
   .userSearch select {
-    width: 25vw;
+    width: 23vw;
+  }
+
+  select#kgType {
+    width: 12vw;
   }
 }
 
 @media only screen and (min-width: 425px) {
   .userSearch select {
     width: 20vw;
+  }
+
+  select#kgType {
+    width: 11vw;
   }
 }
 
@@ -292,6 +318,10 @@ input:hover {
     font-size: 4vw;
   }
 
+  select#kgType {
+    width: 6vw;
+  }
+
   .searchBar {
     width: 50vw;
   }
@@ -300,12 +330,16 @@ input:hover {
     width: 8vw;
   }
 
+  .userSearch {
+    width: 66vw;
+  }
+
   .userSearch input {
     width: 6vw;
   }
 
   .userSearch select {
-    width: 13vw;
+    width: 11vw;
   }
 }
 
@@ -329,6 +363,10 @@ input:hover {
     font-size: 3vw;
   }
 
+  select#kgType {
+    width: 5vw;
+  }
+
   .searchBar {
     padding: 20px;
   }
@@ -343,8 +381,12 @@ input:hover {
     align-content: stretch;
   }
 
+  .userSearch {
+    width: 45vw;
+  }
+
   .userSearch select {
-    width: 10vw;
+    width: 9vw;
   }
 }
 
@@ -357,12 +399,24 @@ input:hover {
     font-size: 6vh;
   }
 
+  .kgForm {
+    margin-top: 3vh;
+  }
+
+  select#kgType {
+    width: 4vw;
+  }
+
   .submitButton {
     font-size: 3vh;
   }
 
+  .userForm {
+    margin-top: 3vh;
+  }
+
   .userSearch select {
-    width: 8vw;
+    width: 7vw;
   }
 }
 
@@ -370,5 +424,17 @@ input:hover {
 @media only screen and (min-width: 2560px) {
   form {
     width: 40%
+  }
+
+  .kgForm {
+    margin-top: 4vh;
+  }
+
+  select#kgType {
+    width: 3vw;
+  }
+
+  .userForm {
+    margin-top: 4vh;
   }
 }

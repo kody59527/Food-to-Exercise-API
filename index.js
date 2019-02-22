@@ -14,13 +14,11 @@ function displayResults(finalData) {
   for (let i = 0; i < finalData.foodData.foods.length; i++) {
     let foodCalories = Math.round(finalData.foodData.foods[i].nf_calories);
     totalCalories = totalCalories + foodCalories;
-    console.log(`totalCalories ${totalCalories}`);
     let yogaMinutes = Math.round((foodCalories / finalData.exerData[0].nf_calories))
     let walkingMinutes = Math.round((foodCalories / finalData.exerData[1].nf_calories));
     let bikingMinutes = Math.round((foodCalories / finalData.exerData[2].nf_calories));
     let runningMinutes = Math.round((foodCalories / finalData.exerData[3].nf_calories));
     let foodName = finalData.foodData.foods[i].food_name.charAt(0).toUpperCase() + finalData.foodData.foods[i].food_name.slice(1);
-    console.log(`Actual rates ${yogaMinutes}, ${walkingMinutes}, ${bikingMinutes}, and ${runningMinutes}`);
     $('.results-list').append(`
     <section class='foodEntry'>
     <section class='foodResults'>
@@ -146,7 +144,7 @@ function exerciseRequest(response) {
   let foodData = response;
   let userWeight = weightInput.value; 
 
-  if (weightType.value == 'lbs') {
+  if (kgType.value == 'lbs') {
     userWeight = (userWeight / 2.205);
   };
   /* Query will slice second to last exercise from results, must double */
