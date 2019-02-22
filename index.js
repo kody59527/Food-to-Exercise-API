@@ -7,7 +7,7 @@ function clearResults() {
   $('.errorMessage').addClass('hidden');
 }
 
-/* Appends results and calculates minutes from calories*/
+/* Appends results to list from both POST requests */
 
 function displayResults(finalData) {
   let totalCalories = 0;
@@ -57,7 +57,7 @@ function displayResults(finalData) {
   displayTotalCalories(totalData);
 }
 
-/* Uses object totalData for total calories and exercise data for the total */
+/* Uses object totalData for total calories and exercise data */
 
 function displayTotalCalories(totalData) {
   $('.results-list').append(`
@@ -91,7 +91,7 @@ function displayTotalCalories(totalData) {
   $('.footer').removeClass('hidden');
 }
 
-/* Listens for submit */
+/* Sends user information to first POST request */
 
 function watchForm() {
   $('form').submit(event => {
@@ -139,6 +139,8 @@ function sendRequest(searchBar) {
     $('.results-list').removeClass('hidden');
   });
 }
+
+/* POST Request from weight, age, and gender for calorie burn rate */
 
 function exerciseRequest(response) {
   let foodData = response;
