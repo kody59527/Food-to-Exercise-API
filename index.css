@@ -106,6 +106,14 @@ body {
   width: 25%;
 }
 
+fieldset {
+  border: 1px solid white;
+  display: flex;
+  height: 13vh;
+  justify-content: center;
+  width: 100%;
+}
+
 footer {
   margin: 10px;
   text-align: center;
@@ -146,6 +154,15 @@ h1 {
   width: 90vw
 }
 
+legend {
+  display: none;
+}
+
+.lineBar {
+  height: 8vh;
+  width: 80vw;
+}
+
 .lineRow {
   display: flex;
   flex-direction: row;
@@ -166,7 +183,7 @@ h1 {
   height: 100%;
   padding: 15px;
   text-align: left;
-  width: 75vw;
+  width: 93%;
 }
 
 option {
@@ -194,7 +211,7 @@ input:hover {
   float: right;
   font-size: 3vh;
   height: 100%;
-  width: 15vw;
+  width: 7%;
   }
 
 .tinted {
@@ -244,8 +261,6 @@ input:hover {
     color: #FFFFFF;
     cursor: default;
     font-size: 3vh;
-    height: 7vw;
-    margin: 3vh 0vh;
     text-align: center;
 }
 
@@ -322,14 +337,6 @@ select#kgType {
     width: 6vw;
   }
 
-  .searchBar {
-    width: 50vw;
-  }
-
-  .submitButton {
-    width: 8vw;
-  }
-
   .userSearch {
     width: 66vw;
   }
@@ -367,15 +374,6 @@ select#kgType {
     width: 5vw;
   }
 
-  .searchBar {
-    padding: 20px;
-  }
-
-  .submitButton
-  {
-    width: 4vw;
-  }
-
   .results-list {
     flex-flow: column wrap;
     align-content: stretch;
@@ -406,11 +404,7 @@ select#kgType {
   select#kgType {
     width: 4vw;
   }
-
-  .submitButton {
-    font-size: 3vh;
-  }
-
+  
   .userForm {
     margin-top: 3vh;
   }

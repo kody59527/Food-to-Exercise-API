@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Convert different food into the amount of exercise needed to burn the calories off.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Calorie to Exercise Search</title>
@@ -14,39 +15,63 @@
 <body role='body'>
   <div class="tinted">
     <div class="container">
-      <section class="homePage">
-        <h1>Find how long to exercise by food</h1>
-        <form class="userSearch">
-          <section class="kgForm">
-            <label for="weightInput">Weight</label>
-            <div class="lineRow">
-              <input required id="weightInput" type="number" value="150" min="1" max="999">
-              <select required id="kgType" class="kgType" type="text" value="lbs">
-                <option value="lbs">lbs</option>
-                <option value="kg">kg</option>
-              </select>
-            </div>
+      <main>
+        <section class="homePage">
+          <header>
+            <h1>Find how long to exercise by food</h1>
+          </header>
+          <p>Enter one or multiple food entries into the search (i.e one banana, two scoops of chocolate ice cream, and a slice of pizza) 
+            and the results will show you the calories of the food and the how long it will take to burn it off.</p>
+          <form class="userSearch">
+            <section class="kgForm">
+                <div class="lineRow">
+                  <fieldset>
+                    <legend>Body weight</legend>
+                    <label for="weightInput">Weight</label>
+                    <input required id="weightInput" type="number" value="150" min="1" max="999">
+                  </fieldset>
+                  <fieldset>
+                      <legend>Weight Unit</legend>
+                        <label for="kgType">Weight Unit</label>
+                        <select required id="kgType" class="kgType" type="text" value="lbs">
+                          <option value="lbs">lbs</option>
+                          <option value="kg">kg</option>
+                        </select>
+                  </fieldset>
+                </div>
+            </section>
+            <section class="userForm">
+              <fieldset>
+                <legend>Age</legend>
+                <label for="ageInput">Age</label>
+                <input required id="ageInput" type="number" min="1" max="116" value="25">
+              </fieldset>
+            </section>
+            <section class="userForm">
+              <fieldset>
+                <legend>Gender</legend>
+                <label for="genderInput">Gender</label>
+                <select required id="genderInput" type="text">
+                  <option value="female">Female</option>
+                  <option value="male">Male</option>
+                </select>
+              </fieldset>
+            </section>
           </section>
-          <section class="userForm">
-            <label for="ageInput">Age</label>
-            <input required id="ageInput" type="number" min="1" max="116" value="25">
+          <section class="searchForm">
+            <label for="searchBar">Food Search</label>
+            <fieldset>
+              <legend>Food Entries</legend>
+              <div class='lineBar'>
+                <input required type="input" class="searchBar" id="searchBar" placeholder="an apple and a yogurt">
+                <button type="submit" class="submitButton"><i class="fa fa-search"></i></button>
+              </div>
+            </fieldset>
           </section>
-          <section class="userForm">
-            <label for="genderInput">Gender</label>
-            <select required id="genderInput" type="text">
-              <option value="female">Female</option>
-              <option value="male">Male</option>
-            </select>
-          </section>
-        </section>
-        <section class="searchForm">
-          <input required type="input" class="searchBar" id="searchBar" placeholder="an apple and a yogurt">
-          <button type="submit" class="submitButton"><i class="fa fa-search"></i></button>
-        </section>
-        </form>
-          <p class="errorMessage"></p>
-          <div class="results-list hidden" id="results-list">
-    </div>
+          </form>
+            <p class="errorMessage"></p>
+            <div class="results-list hidden" id="results-list" role='region' aria-live="polite"></div>
+      </main>
     <footer role='footer' class="footer hidden">
       <p>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
              is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 		    
