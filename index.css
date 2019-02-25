@@ -111,7 +111,7 @@ fieldset {
   display: flex;
   height: 13vh;
   justify-content: center;
-  width: 100%;
+  padding: 0;
 }
 
 footer {
@@ -126,10 +126,10 @@ form {
 
 form label {
   display: block;
-  font-size: 3vh;
-  font-weight: bold;
+  font-size: 2vh;
   margin: auto;
   text-align: center;
+  white-space: nowrap;
   width: 80%;
 }
 
@@ -161,6 +161,7 @@ legend {
 .lineBar {
   height: 8vh;
   width: 80vw;
+  margin: auto;
 }
 
 .lineRow {
@@ -183,7 +184,7 @@ legend {
   height: 100%;
   padding: 15px;
   text-align: left;
-  width: 93%;
+  width: 86%;
 }
 
 option {
@@ -192,6 +193,7 @@ option {
 
 .searchForm {
   height: 8vh;
+  margin-top: 5vh;
 }
 
 select:active, 
@@ -211,7 +213,7 @@ input:hover {
   float: right;
   font-size: 3vh;
   height: 100%;
-  width: 7%;
+  width: 14%;
   }
 
 .tinted {
@@ -232,7 +234,7 @@ input:hover {
   height: 13vh;
   justify-content: center;
   margin-top: 8vh;
-  width: 33vw;
+  width: 25%;
 }
 
 .userForm select {
@@ -261,6 +263,7 @@ input:hover {
     color: #FFFFFF;
     cursor: default;
     font-size: 3vh;
+    margin: auto;
     text-align: center;
 }
 
@@ -277,15 +280,15 @@ select#kgType {
   display: flex;
   flex-direction: column;
   height: 13vh;
-  margin-top: 8vh;
-  width: 33vw;
+  margin: auto;
+  width: 25%;
 }
 
 .kgForm input {
   border-bottom-width: 1px;
   display: inline-block;
   height: 3.6vh;
-  width: 35%;
+  width: 80%;
 }
 
 .kgForm select {
@@ -404,7 +407,7 @@ select#kgType {
   select#kgType {
     width: 4vw;
   }
-  
+
   .userForm {
     margin-top: 3vh;
   }
