@@ -19,6 +19,12 @@ function displayResults(finalData) {
     let bikingMinutes = Math.round((foodCalories / finalData.exerData[2].nf_calories));
     let runningMinutes = Math.round((foodCalories / finalData.exerData[3].nf_calories));
     let foodName = finalData.foodData.foods[i].food_name.charAt(0).toUpperCase() + finalData.foodData.foods[i].food_name.slice(1);
+
+    let yogaAppend = `<section class='exerEntry'>
+    <img class='exerPic' src="https://i.imgur.com/EKlFbhO.png" alt="A person doing yoga">
+    <p class='exerTitle'>Yoga</p><p><span class='exerMin'>${yogaMinutes}</span> min</p>
+  </section>`;
+
     $('.results-list').append(`
     <section class='foodEntry'>
     <section class='foodResults'>

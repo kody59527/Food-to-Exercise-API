@@ -255,7 +255,6 @@ input:hover {
   display: flex;
   flex-direction: row;
   height: 18vh;
-  margin-right: auto;
   width: 91vw;
 }
 
@@ -333,6 +332,10 @@ select#kgType {
 }
 
 @media only screen and (min-width: 425px) {
+  .lineBar {
+    width: 60vw;
+  }
+
   .userSearch select {
     width: 20vw;
   }
@@ -369,6 +372,10 @@ select#kgType {
 
   select#kgType {
     width: 6vw;
+  }
+
+  .userSearch {
+    width: 60vw;
   }
 
   .userSearch select {
