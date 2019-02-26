@@ -47,14 +47,18 @@ function displayResults(finalData) {
     </section>
     </section>`);
   } 
-  let totalData = {
-    totalCalories:  `${totalCalories}`, 
-    yogaMinutes: `${finalData.exerData[0].nf_calories}`, 
-    walkingMinutes: `${finalData.exerData[1].nf_calories}`, 
-    bikingMinutes: `${finalData.exerData[2].nf_calories}`, 
-    runningMinutes: `${finalData.exerData[3].nf_calories}`
+    let totalData = {
+      totalCalories:  `${totalCalories}`, 
+      yogaMinutes: `${finalData.exerData[0].nf_calories}`, 
+      walkingMinutes: `${finalData.exerData[1].nf_calories}`, 
+      bikingMinutes: `${finalData.exerData[2].nf_calories}`, 
+      runningMinutes: `${finalData.exerData[3].nf_calories}`
   };
-  displayTotalCalories(totalData);
+  if (finalData.foodData.foods.length > 1) {
+    displayTotalCalories(totalData);
+  }
+  $('.results-list').removeClass('hidden');
+  $('.footer').removeClass('hidden');
 }
 
 /* Uses object totalData for total calories and exercise data */
@@ -87,8 +91,6 @@ function displayTotalCalories(totalData) {
     <p class='exerTitle'>Run</p><p><span class='exerMin'>${Math.round(totalData.totalCalories / totalData.runningMinutes)}</span> min</p>
   </section>
   </section>`);
-  $('.results-list').removeClass('hidden');
-  $('.footer').removeClass('hidden');
 }
 
 /* Sends user information to first POST request */
@@ -176,6 +178,7 @@ function exerciseRequest(response) {
   $.ajax(settings).done(function (exerResponse) {
     let exerData = exerResponse.exercises;
     finalData = {foodData, exerData};
+    console.log(finalData);
     displayResults(finalData);
   });
 

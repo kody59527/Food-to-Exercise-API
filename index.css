@@ -199,6 +199,7 @@ option {
 
 .searchForm {
   height: 8vh;
+  margin-bottom: 8vh;
 }
 
 .searchForm label {
