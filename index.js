@@ -49,14 +49,14 @@ function displayResults(finalData) {
     </section>`);
   } 
     let totalData = {
-      totalCalories:  `${totalCalories}`, 
-      yogaMinutes: `${finalData.exerData[0].nf_calories}`, 
-      walkingMinutes: `${finalData.exerData[1].nf_calories}`, 
-      bikingMinutes: `${finalData.exerData[2].nf_calories}`, 
-      runningMinutes: `${finalData.exerData[3].nf_calories}`
+
   };
   if (finalData.foodData.foods.length > 1) {
-    displayTotalCalories(totalData);
+    displayTotalCalories({totalCalories:  `${totalCalories}`,
+    yogaMinutes: `${finalData.exerData[0].nf_calories}`,
+    walkingMinutes: `${finalData.exerData[1].nf_calories}`,
+    bikingMinutes: `${finalData.exerData[2].nf_calories}`,
+    runningMinutes: `${finalData.exerData[3].nf_calories}`});
   }
   $('.results-list').removeClass('hidden');
   $('.footer').removeClass('hidden');
