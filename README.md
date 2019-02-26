@@ -1,6 +1,6 @@
 ## Food to Exercise Search API 
 <br>
-Live Page: https://kody59527.github.io/CalorietoExercise/
+Live Page: https://kody59527.github.io/Food-to-Exercise-API/
 <br>
 A web app that uses the Nutritionix Food API and Exercise API that converts the food entries entered into the amount of exercise needed to burn the calories off.
 <br>
